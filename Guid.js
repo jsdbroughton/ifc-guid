@@ -27,7 +27,7 @@ var Guid = (function(ns) {
             .slice(index, index + 2)
             .reduce((str, v) => str + v, ""), 16)) >>> 0;
 
-    const hex = input => input.toString(16);
+    const hex = (input) => input.toString(16);
 
     const pad = (char, input, length, join) => {
         if (Array.isArray(input)) {
