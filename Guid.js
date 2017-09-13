@@ -75,23 +75,23 @@ var Guid = (function(ns) {
             n = 2,
             pos = 0;
 
-        const headBytes = (guid) => {
+        const headBytes = ((guid) => {
             const bytes = [];
             guid.split('-').map((number, index) => {
                 const bytesInChar = number.match(/.{1,2}/g);
                 bytesInChar.map((byte) => bytes.push(byte));
             });
             return bytes;
-        }(guid);
+        })(guid);
 
-        const tailBytes = (guid) => {
+        const tailBytes = ((guid) => {
             const bytes = [];
             guid.split('-').map((number, index) => {
                 const bytesInChar = number.match(/.{1,2}/g);
                 bytesInChar.map((byte) => bytes.push(parseInt(byte, 16)));
             });
             return bytes;
-        }(guid);
+        })(guid);
 
         num[0] = (toUInt32(headBytes, 0) / 16777216) >>> 0;
         num[1] = (toUInt32(headBytes, 0) % 16777216) >>> 0;
